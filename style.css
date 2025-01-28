@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+
+html {
+  font-size: 3vh;
+}
+
+@media (orientation: portrait) {
+  html {
+    font-size: 2.9vw;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: #fff;
+  background-color: #1a1a1a; 
+  overflow: hidden;
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.lvl {
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+}
+
+.reset {
+  position: absolute;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid #fff;
+  font-weight: 500;
+  background-color: #1a1a1a; 
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.reset:hover {
+  color: #1a1a1a;
+  background-color: #fff;
+}
+
+.reset {
+  top: 0.5rem;
+  right: 1rem;
+}
+
+.ctrls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.ctr-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.ctr-arw-up,
+.ctr-arw-down {
+  width: 100%;
+  height: 40vh;
+}
+
+.ctr-arw-left,
+.ctr-arw-right {
+  flex-direction: column;
+  width: 50%;
+  height: 20vh;
+}
+
+.ctr-arw-up:after {
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid #fff;
+}
+
+.ctr-arw-left:after {
+  border-top: 1rem solid transparent;
+  border-right: 1rem solid #fff;
+  border-bottom: 1rem solid transparent;
+}
+
+.ctr-arw-right:after {
+  border-top: 1rem solid transparent;
+  border-left: 1rem solid #fff;
+  border-bottom: 1rem solid transparent;
+}
+
+.ctr-arw-down:after {
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-top: 1rem solid #fff;
+}
+
+.clk {
+  position: absolute;
+  top: 55%;
+  font-size: 3rem;
+}
+
+.start-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 56, 0.9); 
+}
+
+.start-screen--hidden {
+  display: none;
+}
+
+.start-screen__title {
+  position: relative;
+  font-size: 12vw;
+  color: #00bfff; 
+}
+
+.start-screen__word {
+  color: #78d6c6; 
+}
+
+.start-screen__btn {
+  position: relative;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.5rem 1rem; 
+  background-color: #78d6c6; 
+  font-size: 3vw;
+  font-family: "Archivo Black", sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s; 
+}
+
+.start-screen__btn:hover {
+  background-color: #fff; 
+  color: #1a1a1a; 
+}
+
+.g-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 29.03rem;
+}
+
+.g--tutorial:before {
+  position: absolute;
+  bottom: -4rem;
+  content: "Use Arrow keys to move Blue Cube and reach the Green Cube";
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.g--win:after,
+.g--lose:after,
+.g--final-win:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background-color: rgba(0, 0, 56, 0.5);
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.g--win:after {
+  content: "You win! Next level";
+}
+
+.g--lose:after {
+  content: "You lose! Try again!";
+}
+
+.g--final-win:after {
+  content: "Game completed!";
+}
+
+.g__player {
+    position: absolute;
+    width: var(--cell);
+    height: var(--cell);
+    background-color: #00bfff; 
+    top: calc(var(--posTop) * var(--cell));
+    left: calc(var(--posLeft) * var(--cell));
+    transition: top 0.2s ease, left 0.2s ease;
+  }
+
+.g__cell {
+  width: var(--cell);
+  height: var(--cell);
+  background-color: #fff;
+}
+
+.g__cell--rock {
+  background: #000038;
+}
+
+.g__cell--lava {
+  background: linear-gradient(45deg, orange, #ff7d66 150%);
+}
+
+.g__cell--stop {
+  position: relative;
+  background: linear-gradient(45deg, #78d6c6 -50%, #fff 100%);
+}
+
+.g__cell--end {
+  background: #80c0a1;
+}
+
+@keyframes neon {
+    0% {
+      box-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 15px #00bfff, 0 0 20px #00bfff;
+    }
+    50% {
+      box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff, 0 0 40px #00bfff;
+    }
+    100% {
+      box-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff, 0 0 15px #00bfff, 0 0 20px #00bfff;
+    }
+  }
+  
+ 
+  @keyframes burst {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+
+  .g--win .g__player {
+    animation: burst 0.5s forwards, neon 1s infinite alternate;
+  }
